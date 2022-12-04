@@ -2,8 +2,8 @@ import { z } from "zod";
 
 import { router, publicProcedure } from "../trpc";
 
-export const exampleRouter = router({
-  getByName: publicProcedure
+export const danceRouter = router({
+  getDanceByName: publicProcedure
     .input(z.object({ name: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.prisma.dances.findFirst({
