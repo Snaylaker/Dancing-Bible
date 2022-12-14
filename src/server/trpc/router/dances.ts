@@ -15,4 +15,16 @@ export const danceRouter = router({
   getAll: publicProcedure.query(({ ctx }) => {
     return ctx.prisma.dances.findMany();
   }),
+  updateComment: publicProcedure
+    .input(z.object({ id: z.string(), comment: z.string() }))
+    .mutation(({ ctx, input }) => {
+      return ctx.prisma.dances.update({
+        where: {
+          id: input.id,
+        },
+        data: {
+          comment: input.comment,
+        },
+      });
+    }),
 });

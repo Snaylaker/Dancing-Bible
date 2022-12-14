@@ -15,11 +15,10 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Dance Log </title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <body className="to-white-900  m-0  h-screen bg-gradient-to-b from-blue-900">
-        <div className="mx-auto mt-9 max-w-7xl px-4 sm:px-6 md:px-8">
-          <div className="flex space-x-8">
+        <div className="mx-auto max-w-7xl px-4  sm:px-6 md:px-8">
+          <div className=" flex space-x-8 pt-8">
             {dances.data.map((dance) => (
               <Card key={dance.id} {...dance} />
             ))}
