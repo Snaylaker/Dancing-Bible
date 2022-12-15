@@ -1,3 +1,4 @@
+import type { FormEvent } from "react";
 import { useState } from "react";
 import { trpc } from "../utils/trpc";
 
@@ -12,7 +13,7 @@ export default function Card(props: Dance) {
   const [comment, setComment] = useState("");
   const mutation = trpc.dances.updateComment.useMutation();
 
-  const updateValue = async (event: Event) => {
+  const updateValue = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     mutation.mutate({ id: props.id, comment: comment });
     console.log("hi");
